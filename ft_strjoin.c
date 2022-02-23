@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 15:38:09 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/23 15:57:53 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/02/21 17:04:48 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/02/21 17:12:48 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	size_t	i;
+	size_t	j;
 	char	*str;
 
-	if (!s)
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
 		return (NULL);
-	if (start > ft_strlen(s))
-		str = ft_calloc(1, sizeof(char));
-	else if (ft_strlen(s + start) >= len)
+	i = 0;
+	j = 0;
+	while (s1[i])
 	{
-		str = ft_calloc(len + 1, sizeof(char));
-		str = ft_memmove(str, s + start, len);
+		str[j] = s1[i];
+		i++;
+		j++;
 	}
-	else
+	i = 0;
+	while (s2[i])
 	{
-		str = ft_calloc(ft_strlen(s + start) + 1, sizeof(char));
-		str = ft_memmove(str, s + start, ft_strlen(s + start));
+		str[j] = s2[i];
+		j++;
+		i++;
 	}
+	str[j] = '\0';
 	return (str);
 }

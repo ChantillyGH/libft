@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:47:14 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/18 14:27:45 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:02:01 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return (NULL);
 	while (*s)
 	{
 		ft_putchar_fd(*s, fd);

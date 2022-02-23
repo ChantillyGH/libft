@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 15:38:09 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/23 15:57:53 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/02/22 15:53:44 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/02/23 16:58:57 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*str;
+	char			*str;
+	unsigned int	i;
 
-	if (!s)
+	i = 0;
+	str = ft_strdup(s);
+	if (!s || !f || !str))
 		return (NULL);
-	if (start > ft_strlen(s))
-		str = ft_calloc(1, sizeof(char));
-	else if (ft_strlen(s + start) >= len)
+	while (str[i])
 	{
-		str = ft_calloc(len + 1, sizeof(char));
-		str = ft_memmove(str, s + start, len);
-	}
-	else
-	{
-		str = ft_calloc(ft_strlen(s + start) + 1, sizeof(char));
-		str = ft_memmove(str, s + start, ft_strlen(s + start));
+		str[i] = f(i, str[i]);
+		i++;
 	}
 	return (str);
 }

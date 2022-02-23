@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 15:38:09 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/23 15:57:53 by mdoroana         ###   ########.fr       */
+/*   Created: 2022/02/23 16:33:32 by mdoroana          #+#    #+#             */
+/*   Updated: 2022/02/23 16:49:29 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*str;
+	unsigned int	i;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		str = ft_calloc(1, sizeof(char));
-	else if (ft_strlen(s + start) >= len)
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		str = ft_calloc(len + 1, sizeof(char));
-		str = ft_memmove(str, s + start, len);
+		f(i, &s[i]);
+		i++;
 	}
-	else
-	{
-		str = ft_calloc(ft_strlen(s + start) + 1, sizeof(char));
-		str = ft_memmove(str, s + start, ft_strlen(s + start));
-	}
-	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:00:18 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/17 19:16:43 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:19:05 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	nbr;
-
 	if (n < 0)
 	{
+		if (n == -2147483648)
+		{
+			ft_putstr_fd("-2147483648", fd);
+			return ;
+		}
 		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(n * -1);
+		n *= -1;
 	}
-	else
-		nbr = (unsigned int)n;
 	if (n > 9)
-		ft_putchar_fd(nbr / 10, fd);
-	ft_putchar_fd((char)nbr % 10 + 48, fd);
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + 48, fd);
 }
