@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 17:17:07 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/18 16:16:28 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/25 16:52:13 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!dst)
+	if (!dst && !src)
 		return (NULL);
 	i = 0;
 	while (i < n)

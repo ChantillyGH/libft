@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:59:04 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/22 15:11:38 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/25 16:32:20 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sig;
-	int	res;
+	int			sig;
+	long long	res;
 
 	sig = 1;
-	i = 0;
 	res = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == '\t' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sig *= -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		res = res * 10 + (str[i] - 48);
-		i++;
+		res = res * 10 + (sig * (*str - 48));
+		str++;
+		if (res > 2147483647)
+			return (-1);
+		if (res < -2147483648)
+			return (0);
 	}
-	return (res * sig);
+	return (res);
 }
