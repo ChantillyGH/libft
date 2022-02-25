@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 16:18:32 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/22 14:52:17 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:10:54 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 
 int				ft_toupper(int c);
+
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 t_list			*ft_lstnew(void *content);
 
