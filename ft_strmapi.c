@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:53:44 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/23 16:58:57 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:29:03 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	str = ft_strdup(s);
-	if (!s || !f || !str))
+	if (!s || !f || !str)
 		return (NULL);
 	while (str[i])
 	{
