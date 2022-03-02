@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:04:48 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/25 15:37:58 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:48:22 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*str;
 
+	if (!s1 || !s2)
+		return (NULL);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);

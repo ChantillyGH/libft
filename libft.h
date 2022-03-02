@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 16:18:32 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/25 18:10:54 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:05:52 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
-
-typedef struct s_split_next
-{
-	size_t	start;
-	size_t	length;
-}				t_split_next;
 
 int				ft_atoi(const char *str);
 
@@ -103,9 +97,9 @@ int				ft_lstsize(t_list *lst);
 
 t_list			*ft_lstlast(t_list *lst);
 
-void			ft_lstadd_front(t_list **alst, t_list *new);
+void			ft_lstadd_front(t_list **lst, t_list *new);
 
-void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lstadd_back(t_list **lst, t_list *new);
 
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 
