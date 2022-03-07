@@ -6,7 +6,7 @@
 /*   By: mdoroana <mdoroana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:20:02 by mdoroana          #+#    #+#             */
-/*   Updated: 2022/02/22 14:55:17 by mdoroana         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:25:03 by mdoroana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dstlen = ft_strlen(dst);
 	i = 0;
 	if (dstsize <= dstlen)
-		srclen += dstsize;
+		return (srclen += dstsize);
 	else
 		srclen += dstlen;
 	while (src[i] != '\0' && (dstlen + 1) < dstsize)
